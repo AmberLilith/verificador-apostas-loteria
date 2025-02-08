@@ -1,0 +1,47 @@
+.sorteio{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 0px 10px 0px;
+}
+
+.aposta{
+    border: 1px solid rgb(217, 217, 217);
+    padding: 10px 0px 10px 0px;
+}
+
+.numeros-para-selecionar{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 10px 10px 10px;
+}
+
+.numero{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: larger;
+    background-color: rgb(196, 195, 197);
+}
+
+.numero-selecionado{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: larger;
+    background-color: rgb(104, 34, 170);
+    color: white;
+}
+
+.div-botoes{
+    display: flex;
+    justify-content: end;
+    padding: 10px 0px 10px 0px;
+}
