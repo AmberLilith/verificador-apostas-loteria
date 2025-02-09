@@ -1,9 +1,10 @@
 export class Utils{
-    static criaBotao(id, texto, classes, listaDemaisParametros){
+    static criaBotao(id, texto, classes, child, listaDemaisParametros){
         const botao = document.createElement("button");
         if(id) botao.id = id;
-        if(texto) botao.innerText = texto;
+        if(texto) botao.textContent = texto;
         if(classes) botao.classList = classes;
+        if(child) botao.appendChild(child);
         if(listaDemaisParametros){
             listaDemaisParametros.forEach(parametro =>{
                 botao.setAttribute(parametro.nome, parametro.valor);

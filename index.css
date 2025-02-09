@@ -1,13 +1,19 @@
+:root {
+    --cor-do-jogo: black;
+  }
+
 .sorteio{
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 10px 0px 10px 0px;
+    border: 1px solid rgb(217, 217, 217);
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .aposta{
     border: 1px solid rgb(217, 217, 217);
-    padding: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .numeros-para-selecionar{
@@ -17,7 +23,17 @@
     padding: 10px 10px 10px 10px;
 }
 
-.numero{
+.numeros-selecionados{
+    display: flex;    
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    color: rgb(181, 180, 180);    
+}
+
+.numero-nao-selecionado{
     width: 50px;
     height: 50px;
     padding: 10px;
@@ -36,12 +52,21 @@
     border: 1px solid black;
     text-align: center;
     font-size: larger;
-    background-color: rgb(104, 34, 170);
     color: white;
+    background-color: var(--cor-do-jogo);
 }
 
 .div-botoes{
     display: flex;
+    gap: 10px;
     justify-content: end;
     padding: 10px 0px 10px 0px;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between; /* Espaço máximo entre os elementos */
+    align-items: center; /* Alinha verticalmente */
+    padding: 10px;
+    width: 100%;
 }
