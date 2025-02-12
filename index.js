@@ -32,6 +32,10 @@ function inicializaJogo(nome){
             if(tipoJogo == JogosEnum.TIMEMANIA.tipo){
                 jogo = new Timemania(tipoJogo);
             }
+
+            /* if(tipoJogo == JogosEnum.SUPER_SETE.tipo){
+                jogo = new SuperSete(tipoJogo);
+            } */
         }
         jogo.inicializaJogo();
     }

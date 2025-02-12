@@ -7,7 +7,7 @@ export class JogosEnum {
     static MILIONARIA = { tipo: 'milionaria', nome: "+Milionária", cor: "#2e3078", qtddNumsSorteio: 7, qtddMinNumsAposta: 6, qtddMaxNumsAposta: 10, qtddNumsParaSelecionar: 50}
     static DIA_DE_SORTE = { tipo: 'diadesorte', nome: "Dia de Sorte", cor: "#cb852b", qtddNumsSorteio: 7, qtddMinNumsAposta: 7, qtddMaxNumsAposta: 11, qtddNumsParaSelecionar: 31}
     static DUPLA_SENA = { tipo: 'duplasena', nome: "Dupla Sena", cor: "#a61324", qtddNumsSorteio: 6, qtddMinNumsAposta: 6, qtddMaxNumsAposta: 15, qtddNumsParaSelecionar: 50}
-    //static SUPER_SETE = { tipo: 'supersete', nome: "Super Sete", cor: "#a8cf44", qtddNumsSorteio: , qtddMinNumsAposta: , qtddMaxNumsAposta: , qtddNumsParaSelecionar: }
+    //static SUPER_SETE = { tipo: 'supersete', nome: "Super Sete", cor: "#a8cf44"}
     static TIMEMANIA = { tipo: 'timemania', nome: "Timemania", cor: "#02ff02", qtddNumsSorteio: 7, qtddMinNumsAposta: 10, qtddMaxNumsAposta: 10, qtddNumsParaSelecionar: 80}
 
     static getNomeBytipo(tipo) {

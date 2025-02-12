@@ -61,8 +61,7 @@ export class MaisMilionaria extends Jogo {
             ? this.trevosDaSorteSorteio
             : this.trevosDaSorteApostas.get(identificador) || [];
 
-        if (trevosSelecionados.includes(numero)) {
-            // Se o número já está na lista, removemos ele
+        if (trevosSelecionados.includes(numero)) {            
             trevosSelecionados = trevosSelecionados.filter(n => n !== numero);
             btn.classList.remove("active");
         } else {
@@ -73,11 +72,10 @@ export class MaisMilionaria extends Jogo {
                 btn.classList.add("active");
             } else {
                 alert(`Você só pode escolher ${maxTrevos} trevos da sorte!`);
-                return; // ❌ Impede que a classe seja adicionada!
+                return; 
             }
         }
-
-        // Atualiza os dados corretamente
+        
         if (identificador === "sorteio") {
             this.trevosDaSorteSorteio = trevosSelecionados;
         } else {
@@ -94,21 +92,19 @@ export class MaisMilionaria extends Jogo {
     
         this.apostas.forEach(aposta => {
             const nomeAposta = aposta.nome;
-            const trevosAposta = this.trevosDaSorteApostas.get(nomeAposta) || [];
-    
-            // Removendo qualquer conferência anterior para evitar duplicação
+            const trevosAposta = this.trevosDaSorteApostas.get(nomeAposta) || [];    
+            
             const apostaConferida = document.querySelector(`#${nomeAposta}-conferida`);
             let trevosConferidos = document.querySelector(`#trevos-${nomeAposta}-conferida`);
             if (trevosConferidos) {
                 trevosConferidos.remove();
             }
     
-            // Criando novo elemento para exibir os trevos conferidos
+            
             trevosConferidos = document.createElement("div");
             trevosConferidos.id = `trevos-${nomeAposta}-conferida`;
-            trevosConferidos.classList.add("d-flex", "gap-2", "justify-content-center", "mt-2");
-    
-            // Conferindo cada trevo da aposta individualmente
+            trevosConferidos.classList.add("d-flex", "gap-2", "justify-content-center", "mt-2");    
+            
             trevosAposta.forEach(trevo => {
                 const trevoSpan = document.createElement("span");
                 trevoSpan.textContent = trevo;
@@ -135,75 +131,6 @@ export class MaisMilionaria extends Jogo {
         this.trevosDaSorteApostas.delete(nomeAposta);
     }
 }
-
-
-
-
-/* export class MaisMilionaria extends Jogo {
-    trevosDaSorteSorteios = [[]];
-    trevosDaSorteApostas = [];
-    quantidadeMinTrevosDaSorte = 2;
-    quantidadeMaxTrevosDaSorte = 6;
-    constructor(tipo) {
-        super(tipo);
-    }
-
-    criarSorteio() {
-        super.criarSorteio();
-        const divSorteio = document.querySelector("#sorteio-1");
-        const divTrevos = Utils.criaDiv(`div-trevos-sorte-sorteio-1`, "trevos-da-sorte", null, null, null);
-        for (let i = 1; i <= this.quantidadeMaxTrevosDaSorte; i++) {
-            const trevo = Utils.criaDiv(`div-trevo-sorte-${i}-sorteio-1`, "numero-nao-selecionado", i, null, null);
-            trevo.addEventListener("click", (event) => {
-                const elemento = event.target;
-                if (elemento.className == "numero-nao-selecionado") {
-                    elemento.classList.remove("numero-nao-selecionado");
-                    elemento.classList.add("numero-selecionado");
-                    this.trevosDaSorteSorteios[0].push(elemento.textContent);
-                } else {
-                    elemento.classList.remove("numero-selecionado");
-                    elemento.classList.add("numero-nao-selecionado");
-                    this.trevosDaSorteSorteios[0] = this.trevosDaSorteSorteios[0].filter(item => item !== elemento.textContent);
-                }
-            })
-            divTrevos.appendChild(trevo);
-        }
-        const h2 = Utils.criaH(`titulo-trevos-sorte-sorteio-1`, "h3", "Trevos Da Sorte", null);
-        if (divSorteio) {
-            divSorteio.appendChild(h2);
-            divSorteio.appendChild(divTrevos);
-        }
-    }
-
-    criarAposta() {
-        super.criarAposta();
-        const nomeAposta = this.apostas[this.apostas.length - 1].nome;
-        const divAposta = document.querySelector(`#${nomeAposta}`);
-        const divTrevos = Utils.criaDiv(`div-trevos-sorte-${nomeAposta}`, "trevos-da-sorte", null, null, null);
-        for (let i = 1; i <= this.quantidadeMaxTrevosDaSorte; i++) {
-            const trevo = Utils.criaDiv(`div-trevo-sorte-${i}-${nomeAposta}`, "numero-nao-selecionado", i, null, null);
-            trevo.addEventListener("click", (event) => {
-                const elemento = event.target;
-                if (elemento.className == "numero-nao-selecionado") {
-                    elemento.classList.remove("numero-nao-selecionado");
-                    elemento.classList.add("numero-selecionado");
-                    this.trevosDaSorteSorteios[0].push(elemento.textContent);
-                } else {
-                    elemento.classList.remove("numero-selecionado");
-                    elemento.classList.add("numero-nao-selecionado");
-                    this.trevosDaSorteApostas[0] = this.trevosDaSorteSorteios[0].filter(item => item !== elemento.textContent);
-                }
-            })
-            divTrevos.appendChild(trevo);
-        }
-        const h2 = Utils.criaH(`titulo-trevos-sorte-${nomeAposta}`, "h3", "Trevos Da Sorte", null);
-        if (divAposta) {
-            divAposta.appendChild(h2);
-            divAposta.appendChild(divTrevos);
-        }
-    }
-} */
-
 
 
 
