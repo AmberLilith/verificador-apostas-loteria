@@ -12,7 +12,7 @@ let jogo = null;
 
 function inicializaJogo(nome){
     const tipoJogo = JogosEnum.getTipoByName(nome);
-    const jogosNormais = [JogosEnum.TESTE.tipo, JogosEnum.LOTOFACIL.tipo, JogosEnum.LOTOMANIA.tipo, JogosEnum.MEGA_SENA.tipo, JogosEnum.QUINA.tipo];
+    const jogosNormais = [/* JogosEnum.TESTE.tipo, */ JogosEnum.LOTOFACIL.tipo, JogosEnum.LOTOMANIA.tipo, JogosEnum.MEGA_SENA.tipo, JogosEnum.QUINA.tipo];
     if(tipoJogo){
         if(jogosNormais.includes(tipoJogo)){
             jogo = new Jogo(tipoJogo);            
