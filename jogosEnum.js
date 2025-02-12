@@ -1,5 +1,5 @@
 export class JogosEnum {
-    static TESTE = { tipo: 'teste', nome: "Teste", cor: "#82726a", qtddNumsSorteio: 5, qtddMinNumsAposta: 2, qtddMaxNumsAposta: 3, qtddNumsParaSelecionar:10}
+    //static TESTE = { tipo: 'teste', nome: "Teste", cor: "#82726a", qtddNumsSorteio: 5, qtddMinNumsAposta: 2, qtddMaxNumsAposta: 3, qtddNumsParaSelecionar:10}
     static LOTOFACIL = { tipo: 'lotofacil', nome: "Lotofácil", cor: "#930089", qtddNumsSorteio: 15, qtddMinNumsAposta: 15, qtddMaxNumsAposta: 20, qtddNumsParaSelecionar:25}
     static LOTOMANIA = { tipo: 'lotomania', nome: "Lotomania", cor: "#f78100", qtddNumsSorteio: 20, qtddMinNumsAposta: 50, qtddMaxNumsAposta: 50, qtddNumsParaSelecionar: 100}
     static MEGA_SENA = { tipo: 'megasena', nome: "Mega Sena", cor: "#209869", qtddNumsSorteio: 6, qtddMinNumsAposta: 6, qtddMaxNumsAposta: 20, qtddNumsParaSelecionar: 60}

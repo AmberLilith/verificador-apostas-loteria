@@ -41,7 +41,7 @@ function inicializaJogo(nome){
     }
 }
 
-document.querySelector("#teste").addEventListener("click", () =>{
+/* document.querySelector("#teste").addEventListener("click", () =>{
     jogo.sorteios.forEach((sorteio, indice) =>{
         console.log("Sorteios " + indice + ": " +  sorteio.numeros)
     }) 
@@ -68,4 +68,4 @@ document.querySelector("#teste").addEventListener("click", () =>{
         console.log("sorteio 1 " + jogo.sorteios[0])
         console.log("sorteio 2 " + jogo.sorteios[1])
     }
-})
+}) */
