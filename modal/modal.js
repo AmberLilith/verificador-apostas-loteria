@@ -1,20 +1,21 @@
 import { Utils } from "../utils.js";
 
 export class Modal {
-    constructor(nome, titulo, textoBotaoAcao, funcaoBotaoCancelar, funcaoClickBotaoAcao) {
-        this.nome = nome;
+    constructor(nomeAposta, titulo, textoBotaoAcao, funcaoBotaoCancelar, funcaoClickBotaoAcao, jogoAvoDesseModal) {
+        this.nomeAposta = nomeAposta;
         this.titulo = titulo;
-        this.divModal = Utils.criaDiv(`modal-${this.nome}`, "modal", null, null, null);
-        this.divModalConteudo = Utils.criaDiv(`conteudo-modal-${this.nome}`, "modal-conteudo", null, null, null);
+        this.jogoAvoDesseModal = jogoAvoDesseModal;
+        this.divModal = Utils.criaDiv(`modal-${this.nomeAposta}`, "modal", null, null, null);
+        this.divModalConteudo = Utils.criaDiv(`conteudo-modal-${this.nomeAposta}`, "modal-conteudo", null, null, null);
         const iconeFechar = document.createElement("i");
         iconeFechar.classList = ("bi bi-x-lg");
-        this.botaoFecharModal = Utils.criaBotao(`botao-fechar-modal-${this.nome}`, null, "modal-fechar", iconeFechar, null);
-        this.tituloModal = Utils.criaH(`h2-modal${this.nome}`, "h2", this.titulo, null);
-        this.divCorpoModal = Utils.criaDiv(`modal-corpo-${this.nome}`, null, null, null, null);
-        this.divFooter = Utils.criaDiv(`modal-footer-${this.nome}`, "modal-footer", null, null, null);
-        this.botaoCancelar = Utils.criaBotao(`modal-botao-cancelar${this.nome}`, "Cancelar", "btn btn-danger", null, null);
+        this.botaoFecharModal = Utils.criaBotao(`botao-fechar-modal-${this.nomeAposta}`, null, "modal-fechar", iconeFechar, null);
+        this.tituloModal = Utils.criaH(`h2-modal${this.nomeAposta}`, "h2", this.titulo, null);
+        this.divCorpoModal = Utils.criaDiv(`modal-corpo-${this.nomeAposta}`, null, null, null, null);
+        this.divFooter = Utils.criaDiv(`modal-footer-${this.nomeAposta}`, "modal-footer", null, null, null);
+        this.botaoCancelar = Utils.criaBotao(`modal-botao-cancelar${this.nomeAposta}`, "Cancelar", "btn btn-danger", null, null);
         this.funcaoBotaoCancelar = funcaoBotaoCancelar;
-        this.botaoAcao = Utils.criaBotao(`modal-botao-acao${this.nome}`, textoBotaoAcao, "btn btn-primary", null, null);
+        this.botaoAcao = Utils.criaBotao(`modal-botao-acao${this.nomeAposta}`, textoBotaoAcao, "btn btn-primary", null, null);
         this.funcaoClickBotaoAcao = funcaoClickBotaoAcao;
         this.cria();
     }
@@ -32,6 +33,7 @@ export class Modal {
 
         this.botaoAcao.addEventListener("click", () => {
             this.funcaoClickBotaoAcao();
+            if(this.jogoAvoDesseModal) this.jogoAvoDesseModal.conferirApostas();
         });
 
         this.divModalConteudo.appendChild(this.botaoFecharModal);
@@ -54,5 +56,7 @@ export class Modal {
         this.divModal.classList.remove("ativo");
         this.divModal.remove();
     }
+
+    
 
 }

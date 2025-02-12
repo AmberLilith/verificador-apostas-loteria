@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;  /* Cobre toda a largura da tela */
     height: 100vh; /* Cobre toda a altura da tela */
-    background: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
     display: flex;
     align-items: flex-start;  /* Centraliza verticalmente */
     justify-content: center;  /* Centraliza horizontalmente */
@@ -25,7 +25,7 @@
     padding: 20px;
     border-radius: 8px;
     width: 90%;  /* Responsivo, ocupa 90% da largura */
-    max-width: 500px; /* No máximo 500px */
+    max-width: 1000px; /* No máximo 500px */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     position: relative; /* Para posicionar o botão de fechar */
 }

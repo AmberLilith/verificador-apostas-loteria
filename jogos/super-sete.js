@@ -1,0 +1,2 @@
+/* super sete tem 7 colunas com 10 linhas com valores de 0 a 9. pode apostar até 21 numeros sendo pelo menos 1 numero por coluna, ou seja, o minimo de 7. acima de 7
+pode marcar mais de um numero por coluna até dar no maximo 21. */

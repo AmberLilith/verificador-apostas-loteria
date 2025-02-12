@@ -11,20 +11,21 @@ export class Sorteio{
         para desfazer as alterações que o usuário fez na variavel numeros */
         backupNumeros = [];
     
-        constructor(indiceSorteio, quantidadeNumerosSorteio, quantidadeNumerosParaSelecionar) {
-            this.indiceSorteio = indiceSorteio;
+        constructor(indice, quantidadeNumerosSorteio, quantidadeNumerosParaSelecionar, jogoPaiDesseSorteio) {
+            this.indice = indice;
             this.quantidadeNumerosSorteio = quantidadeNumerosSorteio;
             this.quantidadeNumerosParaSelecionar = quantidadeNumerosParaSelecionar;
+            this.jogoPaiDesseSorteio = jogoPaiDesseSorteio;
             this.modal = null;
         }
     
         adicionaSorteioNoDocumento() {
             const divSorteios = document.querySelector("#sorteios");
-            const nomeSorteio = `sorteio-${this.indiceSorteio}`;
+            const nomeSorteio = `sorteio-${this.indice}`;
             const divSorteio = Utils.criaDiv(nomeSorteio, "sorteio", null, null, null);
             const botaoExibeModal = Utils.criaBotao(`botao-exibe-modal-numeros-${nomeSorteio}`, "Selecionar Números", "btn btn-primary", null, null);
             botaoExibeModal.addEventListener("click", () => {
-                this.modal = new Modal(`sorteio-${this.indiceSorteio}`, `Selecione números Sorteio ${this.indiceSorteio}`, "Carregar", this.cancelaSelecaoDeNumeros, this.exibeNumerosSelecionadosNoDocumento);
+                this.modal = new Modal(`sorteio-${this.indice}`, `Selecione números Sorteio ${this.indice}`, "Carregar", this.cancelaSelecaoDeNumeros, this.exibeNumerosSelecionadosNoDocumento,this.jogoPaiDesseSorteio);
                 this.criaNumerosParaSelecionar(this.modal.divCorpoModal.id);
                 this.backupNumeros = [...this.numeros];
                 this.modal.exibe();
@@ -39,7 +40,7 @@ export class Sorteio{
     
         criaNumerosParaSelecionar(idContainer) {
             const divContainer = document.querySelector(`#${idContainer}`);
-            const nomeSorteio = `sorteio-${this.indiceSorteio}`;
+            const nomeSorteio = `sorteio-${this.indice}`;
             const divNumerosParaSelecionar = Utils.criaDiv(`numeros-para-selecionar-${nomeSorteio}`, "numeros-para-selecionar", null, null, null);
             const divsNumerosAdicionados = [];
             for (let i = 1; i <= this.quantidadeNumerosParaSelecionar; i++) {
@@ -95,12 +96,12 @@ export class Sorteio{
             if (this.numeros.length < this.quantidadeNumerosSorteio) {
                 alert(`A sorteio deve ter exatamente ${this.quantidadeNumerosSorteio} números!`);
             } else {
-                const sorteio = document.querySelector(`#sorteio-${this.indiceSorteio}`);
-                const divComNumerosJaExistente = document.querySelector(`#numeros-sorteio-${this.indiceSorteio}`);
+                const sorteio = document.querySelector(`#sorteio-${this.indice}`);
+                const divComNumerosJaExistente = document.querySelector(`#numeros-sorteio-${this.indice}`);
                 if (divComNumerosJaExistente) divComNumerosJaExistente.remove();
-                const divComNumeros = Utils.criaDiv(`numeros-sorteio-${this.indiceSorteio}`, "numeros-selecionados", null, null, null);
+                const divComNumeros = Utils.criaDiv(`numeros-sorteio-${this.indice}`, "numeros-selecionados", null, null, null);
                 this.numeros.forEach((numero, indice) => {
-                    const divNumeroSelecionado = Utils.criaDiv(`numero${indice}-selecionado-sorteio-${this.indiceSorteio}`, "numero-selecionado", numero, null, null);
+                    const divNumeroSelecionado = Utils.criaDiv(`numero${indice}-selecionado-sorteio-${this.indice}`, "numero-selecionado", numero, null, null);
                     divComNumeros.appendChild(divNumeroSelecionado);
                 });
                 sorteio.insertAdjacentElement("afterbegin", divComNumeros);

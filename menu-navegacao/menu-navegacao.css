@@ -1,0 +1,21 @@
+.menu-navegacao{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.opcao{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.opcao-selecionada{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(187, 184, 184);
+}
+.opcao:hover{
+    background-color: rgb(187, 184, 184);
+    cursor: pointer;
+}
